@@ -122,8 +122,9 @@ app.delete('/removeCompletedTodos', (req, res) => {
         .then(todos => res.json(todos))
         .catch(err => res.status(400).json(err))
 })
+// Paste your Mongo DB connection string to connect to your Mongo DB 
 // Connecting to Mongo DB Atlas
-mongoose.connect('mongodb+srv://sultani:su1112131415@cluster0.k7xcs.mongodb.net/testing?retryWrites=true&w=majority', {
+mongoose.connect('Mongo DB Connection String', {
     useCreateIndex: true, useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false
 })
 // Istantiating the db connection instance
