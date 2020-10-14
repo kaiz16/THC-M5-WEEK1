@@ -30,28 +30,13 @@
 
 <script>
 import axios from "axios";
-/*
-axios can take up to three parameters (@URL, @DATA, @OPTIONS)
-@URL will be the url to our server
-
-@DATA can be optional 
-will be the data that we want to insert
-
-@OPTIONS can be optional 
-but mostly used for type of the data and 
-JSON token for user's authentication
-*/
-
-// the options for axios
+// Options
 const options = {
   headers: {
     "Content-Type": "application/json",
   },
 };
-// since express is listening on this route,
-// we will talk to our database through this route
-// Express is like middleware between our database and client
-const url = "http://localhost:8000";
+const url = "api";
 
 export default {
   name: "Todo",
@@ -91,6 +76,7 @@ export default {
           @POST because we want to insert new todo
         */
         await axios.post(url + "/add", newTodo, options);
+        this.newTodo = "";
         // If successfull, refetch todos
         this.fetchTodos();
       } catch (error) {
