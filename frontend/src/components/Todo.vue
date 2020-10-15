@@ -5,13 +5,13 @@
       id="inputData"
       placeholder="Add a task!"
       v-model="newTodo"
-      v-on:keyup.enter="addTodo"
     />
     <button v-on:click="addTodo" id="add">Add</button>
 
     <div class="todo" v-for="(todo, index) in todos" :key="index">
       <span
         @click="checkTodo(todo._id)"
+        class="todo-item"
         :class="{ completed: todo.completed }"
         >{{ todo.text }}</span
       >
@@ -135,7 +135,7 @@ export default {
 </script>
 <style>
 .card {
-  width: 25%;
+  width: 30%;
   background-color: #ffffff;
   margin: 0 auto;
   padding: 3em 2em 1em 3em;
@@ -165,6 +165,7 @@ button {
 }
 
 .todo {
+  width: 100%;
   background-color: #f7f7f7;
   color: #333333;
   font-weight: bold;
@@ -172,9 +173,8 @@ button {
   border-radius: 2px;
   text-align: left;
   margin: 0.7em 0;
-  padding: 1.2em 1.5em;
+  padding: 1.2em 0px;
 }
-
 .todo span {
   cursor: pointer;
 }
@@ -184,6 +184,9 @@ button {
 }
 .clear {
   float: right;
+  background: #e95534;
+  padding: 5px 10px;
+  border-radius: 60px;
 }
 
 #clearButton {
@@ -193,6 +196,12 @@ button {
   left: 0%;
   width: 100%;
   padding: 0.8em 0;
+}
+@media only screen and (max-width: 700px) {
+  .card {
+    width: 90%;
+    padding: 3em 0.5em;
+  }
 }
 </style>
 
